@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
-const app = require('../src/app');
-const addWsServer = require('../src/ws');
+const app = require('../web-server/src/app');
+const addWsServer = require('../web-server/src/ws');
 const debug = require('debug')('happy-day:server');
 const http = require('http');
 

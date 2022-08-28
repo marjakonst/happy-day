@@ -30,10 +30,10 @@ Play with it:
 2. In another terminal try:
 
 ```sh
-$ curl http://localhost:3000/publish/controller-msg/video1
-$ curl http://localhost:3000/publish/controller-msg/video2
-$ curl http://localhost:3000/publish/controller-msg/video3
-$ curl http://localhost:3000/publish/controller-msg/home
+$ curl http://localhost:3000/publish/controller-msg/start
+$ curl http://localhost:3000/publish/controller-msg/sceneA
+$ curl http://localhost:3000/publish/controller-msg/sceneB
+$ curl http://localhost:3000/publish/controller-msg/dev
 ```
 
 3. Try the same from python:
@@ -41,7 +41,7 @@ $ curl http://localhost:3000/publish/controller-msg/home
 ```
 $ python
 >>> import requests as req
->>> req.get('http://localhost:3000/publish/controller-msg/video1')
+>>> req.get('http://localhost:3000/publish/controller-msg/start')
 ```
 
 #### TODO:
