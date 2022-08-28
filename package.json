@@ -5,7 +5,8 @@
   "license": "MIT",
   "scripts": {
     "start": "DEBUG='happy-day:*' node ./bin/www",
-    "prettier:fix": "npx prettier --write ."
+    "prettier:fix": "npx prettier --write .",
+    "dev": "DEBUG='happy-day:*' nodemon ./bin/www"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
@@ -17,6 +18,7 @@
     "socket.io": "^4.5.1"
   },
   "devDependencies": {
+    "nodemon": "^2.0.19",
     "prettier": "2.7.1"
   }
 }

@@ -1,22 +1,13 @@
 body {
-  padding: 0px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
-
-a {
-  color: #00b7ff;
+  padding: 0;
+  font: 1.5em "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 div.main {
-  padding: 0px;
-  width: 100%;
-  height: 100%;
-}
-
-video {
-  padding: 0px;
-  width: 100%;
-  height: 100%;
+  position: relative;
+  padding: 0;
+  width: 800px;
+  height: 600px;
 }
 
 video::cue {
@@ -25,4 +16,43 @@ video::cue {
   visibility: visible;
   background-color: rgba(0, 0, 0, 0.6);
   line: 20%;
+}
+
+.video {
+  position: relative;
+  z-index: 0;
+  padding: 0px;
+  width: 100%;
+  height: 100%;
+}
+
+.overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  font-size: 2em;
+  color: coral;
+}
+
+.buttons {
+  top: 90%;
+  left: 40%;
+  color: darkcyan;
+}
+
+.btnNext {
+  color: blue;
+  background-color: aqua;
+}
+
+.btnCancel {
+  color: darkblue;
+  background-color: coral;
+}
+
+/* After debugging add 'visibility: visible;' */
+.btnDev {
+  background-color: darkgray;
 }

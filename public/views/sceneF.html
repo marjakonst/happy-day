@@ -1,0 +1,54 @@
+<video id="vid" class="video" autoplay loop>
+  <source src="videos/sceneF.mp4" type="video/mp4" />
+  <track
+    id="track"
+    label="Hints"
+    kind="subtitles"
+    srclang="en"
+    src="videos/vtt/sceneF.vtt"
+    default
+  />
+  Your browser does not support the video tag.
+</video>
+
+<!-- text of this message may be replaced and unhidden -->
+<div id="message" class="overlay dev">Scene F</div>
+
+<!-- These buttons may be unhidden, its text & action may be changed -->
+<div id="buttons" class="overlay buttons dev">
+  <button
+    id="btnNext1"
+    class="btnNext"
+    type="button"
+    onclick="window.location.href='#sceneC2';"
+  >
+    --> Scene C2
+  </button>
+  <button
+    id="btnNext2"
+    class="btnNext"
+    type="button"
+    onclick="window.location.href='#sceneE';"
+  >
+    --> Scene E
+  </button>
+  <button
+    id="btnCancel"
+    class="btnCancel"
+    type="button"
+    onclick="window.location.href='#start'"
+  >
+    Cancel 乁(ツㄏ
+  </button>
+  <button id="btnBack" class="btnDev" type="button" onclick="history.back()">
+    Back (<--)
+  </button>
+  <button
+    id="btnDev"
+    class="btnDev"
+    type="button"
+    onclick="window.location.href='#dev'"
+  >
+    Dev Menu (≋个≋)
+  </button>
+</div>
