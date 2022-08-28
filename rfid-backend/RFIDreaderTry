@@ -1,45 +1,108 @@
-import RPi.GPIO as GPIO  # Import Raspberry Pi GPIO library
-from time import sleep  # Import the sleep function from the time module
+import RPi.GPIO as GPIO
 from mfrc522 import SimpleMFRC522
-
-GPIO.setwarnings(False)  # Ignore warning for now
-GPIO.setmode(GPIO.BOARD)  # Use physical pin numbering
-GPIO.setup(22, GPIO.OUT, initial=GPIO.LOW)  # Set pin 8 to be an output pin and set initial value to low (off)
-GPIO.setup(29, GPIO.OUT, initial=GPIO.LOW)
-# GPIO.setup(7, GPIO.OUT, initial=GPIO.LOW)
-
-stage = 0
-idA = 0
-idB = 0
-idC = 0
+import spidev
+from time import sleep
 
 
-def send_string(name1, name2, name3):
-    print(name1, name2, name3)
-    pass
+class NFC():
+    def __init__(self, bus=0, device=0, spd=1000000):
+        self.reader = SimpleMFRC522()
+        self.close()
+        self.boards = {}
 
+        self.bus = bus
+        self.device = device
+        self.spd = spd
 
-while True:  # Run forever
-    if stage == 0:
-        GPIO.output(29, GPIO.LOW)
-        GPIO.output(22, GPIO.HIGH)
-        sleep(0.3)
-        readerA = SimpleMFRC522()
+    def reinit(self):
+        self.reader.READER.spi = spidev.SpiDev()
+        self.reader.READER.spi.open(self.bus, self.device)
+        self.reader.READER.spi.max_speed_hz = self.spd
+        self.reader.READER.MFRC522_Init()
+
+    def close(self):
+        self.reader.READER.spi.close()
+
+    def addBoard(self, rid, pin):
+        self.boards[rid] = pin
+
+    def selectBoard(self, rid):
+        if not rid in self.boards:
+            print("readerid " + rid + " not found")
+            return False
+
+        for loop_id in self.boards:
+            GPIO.setup(self.boards[loop_id], GPIO.OUT, initial=GPIO.LOW)
+
+            if loop_id == rid:
+#                print("RST PIN: " + str(self.boards[loop_id]))
+                GPIO.output(self.boards[loop_id], GPIO.HIGH)
+
+        sleep(0.1)
+        return True
+
+    def read(self, rid):
+        if not self.selectBoard(rid):
+            return None 
+
+        self.reinit()
+        cid, val = self.reader.read_no_block()
+        self.close()
+
+        return cid, val
+
+    def write(self, rid, value):
+        if not self.selectBoard(rid):
+            return False
+
+        self.reinit()
+        self.reader.write_no_block(value)
+        self.close()
+        return True
+
+def getTagID(rid):
+    sleep(0.3)
+#    print(rid)
+    id, text = nfc.read(rid)
+#    print("Tag ID: " + str(id))
+    return id
+
+def compareTagID(oldTag,newTag):
+    if oldTag!=newTag:
+        return True
+    else:
+        return False
+
+#adding global ID variables to store perivous IDs.
+oldID1=0
+oldID2=0
+oldID3=0
+
+if __name__ == "__main__":
+    nfc = NFC()
+    GPIO.setwarnings(False)
+    nfc.addBoard("reader1",29)
+    nfc.addBoard("reader2",31)
+    nfc.addBoard("reader3",33)
+
+    while True:
         try:
-            idA, text = readerA.read()
-        finally:
-            stage += 1
+            newID1=getTagID("reader1")
+            newID2=getTagID("reader2")
+            newID3=getTagID("reader3")
+            if (compareTagID(oldID1,newID1) == True or compareTagID(oldID2,newID2) == True or compareTagID(oldID3,newID3) == True):
+#          if (compareTagID(oldID1,newID1) == True or compareTagID(oldID2,newID2) == True or compareTagID(oldID3,newID3) == True) and (newID1!=None or newID2!=None or newID3!=None):
+                print("ID1: " + str(newID1) + "  " + "ID2: " + str(newID2) + "  " + "ID3: " + str(newID3))
+            else:
+                pass
+            oldID1=newID1
+            oldID2=newID2
+            oldID3=newID3
 
-    if stage == 1:
-        GPIO.output(22, GPIO.LOW)
-        GPIO.output(29, GPIO.HIGH)
-        sleep(0.3)
-        readerB = SimpleMFRC522()
-        try:
-            idB, text = readerB.read()
+
         finally:
-            stage += 1
-    if stage == 2:
-        send_string(idA, idB, idC)
-        sleep(0.3)
-        stage = 0
+            GPIO.cleanup()
+
+        if GPIO.getmode() is None:
+            GPIO.setmode(10)
+
