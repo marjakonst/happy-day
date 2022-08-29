@@ -1,4 +1,5 @@
-<video id="vid" class="video" autoplay loop>
+<!-- no 'loop', 'onended' points to the new scene -->
+<video id="vid" class="video" autoplay onended="window.location.href='#end';">
   <source src="videos/sceneE.mp4" type="video/mp4" />
   <track
     id="track"

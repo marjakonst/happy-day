@@ -1,19 +1,24 @@
 <!-- no 'loop', 'onended' points to the new scene -->
-<video id="vid" class="video" autoplay onended="window.location.href='#start';">
-  <source src="videos/end.mp4" type="video/mp4" />
+<video
+  id="vid"
+  class="video"
+  autoplay
+  onended="window.location.href='#sceneE';"
+>
+  <source src="videos/connectCE.mp4" type="video/mp4" />
   <track
     id="track"
     label="Hints"
     kind="subtitles"
     srclang="en"
-    src="videos/vtt/end.vtt"
+    src="videos/vtt/connectCE.vtt"
     default
   />
   Your browser does not support the video tag.
 </video>
 
-<!-- text of this message may be replaced and unhidden -->
-<div id="message" class="overlay dev">End</div>
+<!-- text of this message may be replaced and hidden/unhidden -->
+<div id="message" class="overlay message">Connector C1->E</div>
 
 <!-- These buttons may be unhidden, its text & action may be changed -->
 <div id="buttons" class="overlay buttons dev">
@@ -21,9 +26,9 @@
     id="btnNext1"
     class="btnNext"
     type="button"
-    onclick="window.location.href='#start';"
+    onclick="window.location.href='#sceneE';"
   >
-    --> Start
+    --> Scene E
   </button>
   <button
     id="btnCancel"
