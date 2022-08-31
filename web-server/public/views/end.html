@@ -12,36 +12,51 @@
   Your browser does not support the video tag.
 </video>
 
-<!-- text of this message may be replaced and unhidden -->
-<div id="message" class="overlay dev">End</div>
+<div class="overlay">
+  <p id="choice-msg" class="choice-msg fadeout">
+    That's it!<br />
+    Thank you!<br />
+    乁︵(☀◡☀)︵ㄏ
+  </p>
+</div>
 
-<!-- These buttons may be unhidden, its text & action may be changed -->
-<div id="buttons" class="overlay buttons dev">
-  <button
-    id="btnNext1"
-    class="btnNext"
-    type="button"
-    onclick="window.location.href='#start';"
-  >
-    --> Start
-  </button>
-  <button
-    id="btnCancel"
-    class="btnCancel"
-    type="button"
-    onclick="window.location.href='#start'"
-  >
-    Cancel 乁(ツㄏ
-  </button>
-  <button id="btnBack" class="btnDev" type="button" onclick="history.back()">
-    Back (<--)
-  </button>
-  <button
-    id="btnDev"
-    class="btnDev"
-    type="button"
-    onclick="window.location.href='#dev'"
-  >
-    Dev Menu (≋个≋)
-  </button>
+<!--
+These buttons supposed to be hidden (via CSS) and "clicked" by JS only.
+Note the 'data-obj-regex' custom attribute that defines a RegExp for the
+"choice" of an "object" - it selects the button the JS code "clicks" at.
+(Change the 'dev' class style to unhide these buttons for debugging).
+-->
+<div id="hidden-elements" class="dev">
+  <fieldset>
+    <legend>Scene End</legend>
+    <fieldset>
+      <button
+        id="btnRestart"
+        class="btnDev"
+        type="button"
+        onclick="window.location.href='#start'"
+        data-obj-regex="/-RESTART$/"
+      >
+        Restart 乁(ツㄏ
+      </button>
+      <button
+        id="btnBack"
+        class="btnDev"
+        type="button"
+        onclick="history.back()"
+        data-obj-regex="/-BACK$/"
+      >
+        Back (<--)
+      </button>
+      <button
+        id="btnDev"
+        class="btnDev"
+        type="button"
+        onclick="window.location.href='#dev'"
+        data-obj-regex="/-DEV$/"
+      >
+        Dev Menu (≋个≋)
+      </button>
+    </fieldset>
+  </fieldset>
 </div>

@@ -17,36 +17,35 @@
   Your browser does not support the video tag.
 </video>
 
-<!-- text of this message may be replaced and hidden/unhidden -->
-<div id="message" class="overlay message">Connector B->D</div>
-
 <!-- These buttons may be unhidden, its text & action may be changed -->
-<div id="buttons" class="overlay buttons dev">
-  <button
-    id="btnNext1"
-    class="btnNext"
-    type="button"
-    onclick="window.location.href='#sceneD';"
-  >
-    --> Scene D
-  </button>
-  <button
-    id="btnCancel"
-    class="btnCancel"
-    type="button"
-    onclick="window.location.href='#start'"
-  >
-    Cancel 乁(ツㄏ
-  </button>
-  <button id="btnBack" class="btnDev" type="button" onclick="history.back()">
-    Back (<--)
-  </button>
-  <button
-    id="btnDev"
-    class="btnDev"
-    type="button"
-    onclick="window.location.href='#dev'"
-  >
-    Dev Menu (≋个≋)
-  </button>
+<div id="hidden-elements" class="dev">
+  <fieldset>
+    <legend>Connector B->D</legend>
+    <fieldset>
+      <button
+        id="btnRestart"
+        class="btnDev"
+        type="button"
+        onclick="window.location.href='#start'"
+      >
+        Restart 乁(ツㄏ
+      </button>
+      <button
+        id="btnBack"
+        class="btnDev"
+        type="button"
+        onclick="history.back()"
+      >
+        Back (<--)
+      </button>
+      <button
+        id="btnDev"
+        class="btnDev"
+        type="button"
+        onclick="window.location.href='#dev'"
+      >
+        Dev Menu (≋个≋)
+      </button>
+    </fieldset>
+  </fieldset>
 </div>

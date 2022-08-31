@@ -1,5 +1,11 @@
-<!-- 'loop' is set, if the scene runs too long JS code unsets it -->
-<video id="vid" class="video" autoplay loop>
+<!-- 'onended' and 'data-replay-count' define replay/restart logic -->
+<video
+  id="vid"
+  class="video"
+  autoplay
+  onended="Scene.onVideoPlayed() ? this.play() : Scene.doRestart();"
+  data-replay-count="3"
+>
   <source src="videos/sceneD.mp4" type="video/mp4" />
   <track
     id="track"
@@ -12,44 +18,72 @@
   Your browser does not support the video tag.
 </video>
 
-<!-- text of this message may be replaced and unhidden -->
-<div id="message" class="overlay dev">Scene D</div>
+<div class="overlay">
+  <p id="try-again-msg" class="try-again-msg blink" hidden>Nice try! But...</p>
+  <p id="choice-msg" class="choice-msg fadeout">
+    Please put object C or E<br />
+    on the 3rd plate
+  </p>
+  <p id="restart-msg" class="restart-msg blink" hidden>
+    Will restart in a few secs... 乁(ツㄏ
+  </p>
+</div>
 
-<!-- These buttons may be unhidden, its text & action may be changed -->
-<div id="buttons" class="overlay buttons dev">
-  <button
-    id="btnNext1"
-    class="btnNext"
-    type="button"
-    onclick="window.location.href='#connectDC';"
-  >
-    --> Connector D->C2
-  </button>
-  <button
-    id="btnNext2"
-    class="btnNext"
-    type="button"
-    onclick="window.location.href='#connectDE';"
-  >
-    --> Connector D->E
-  </button>
-  <button
-    id="btnCancel"
-    class="btnCancel"
-    type="button"
-    onclick="window.location.href='#start'"
-  >
-    Cancel 乁(ツㄏ
-  </button>
-  <button id="btnBack" class="btnDev" type="button" onclick="history.back()">
-    Back (<--)
-  </button>
-  <button
-    id="btnDev"
-    class="btnDev"
-    type="button"
-    onclick="window.location.href='#dev'"
-  >
-    Dev Menu (≋个≋)
-  </button>
+<!--
+These buttons supposed to be hidden (via CSS) and "clicked" by JS only.
+Note the 'data-obj-regex' custom attribute that defines a RegExp for the
+"choice" of an "object" - it selects the button the JS code "clicks" at.
+(Change the 'dev' class style to unhide these buttons for debugging).
+-->
+<div id="hidden-elements" class="dev">
+  <fieldset>
+    <legend>Scene D</legend>
+    <button
+      id="btnChoiceOne"
+      class="btnChoice"
+      type="button"
+      onclick="window.location.href='#connectDC';"
+      data-obj-regex="/^?-?-C$/"
+    >
+      --> Connector D->C2
+    </button>
+    <button
+      id="btnChoiceTwo"
+      class="btnChoice"
+      type="button"
+      onclick="window.location.href='#connectDE';"
+      data-obj-regex="/^?-?-E$/"
+    >
+      --> Connector D->E
+    </button>
+    <fieldset>
+      <button
+        id="btnRestart"
+        class="btnDev"
+        type="button"
+        onclick="window.location.href='#start'"
+        data-obj-regex="/-RESTART$/"
+      >
+        Restart 乁(ツㄏ
+      </button>
+      <button
+        id="btnBack"
+        class="btnDev"
+        type="button"
+        onclick="history.back()"
+        data-obj-regex="/-BACK$/"
+      >
+        Back (<--)
+      </button>
+      <button
+        id="btnDev"
+        class="btnDev"
+        type="button"
+        onclick="window.location.href='#dev'"
+        data-obj-regex="/-DEV$/"
+      >
+        Dev Menu (≋个≋)
+      </button>
+    </fieldset>
+  </fieldset>
 </div>

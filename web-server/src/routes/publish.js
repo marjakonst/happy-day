@@ -3,8 +3,6 @@ const createError = require("http-errors");
 const router = express.Router();
 const debug = require("debug")("happy-day:server:routes:publish");
 
-const data = "hi from the server!";
-
 router.get("/:topic/:msg", (req, res, next) => {
   const topic = req.params["topic"];
   const msg = req.params["msg"];

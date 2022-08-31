@@ -28,31 +28,89 @@ video::cue {
 
 .overlay {
   position: absolute;
+  left: 10%;
   top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(0%, -50%);
+  width: 80%;
   z-index: 1;
+}
+
+.choice-msg {
+  color: indigo;
   font-size: 2em;
-  color: coral;
+  text-align: center;
 }
 
-.buttons {
-  top: 90%;
-  left: 40%;
-  color: darkcyan;
+.try-again-msg {
+  color: indigo;
+  font-size: 1em;
+  text-align: center;
 }
 
-.btnNext {
-  color: blue;
-  background-color: aqua;
+.restart-msg {
+  color: orchid;
+  font-size: 1em;
+  text-align: center;
 }
 
-.btnCancel {
-  color: darkblue;
-  background-color: coral;
+.fadeout {
+  /* -webkit-animation: fadeout 10s ease-in-out forwards; */
+  animation: fadeout;
+  animation-duration: 10s;
+  animation-timing-function: ease-in-out;
+  animation-delay: 2s;
+  animation-iteration-count: 2;
+  opacity: 0;
 }
 
-/* After debugging add 'visibility: visible;' */
-.btnDev {
+@keyframes fadeout {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadeout {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.blink {
+  animation: blinker;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* For debugging set 'visibility: visible;' */
+.dev {
+  /* visibility: hidden; */
+  visibility: visible;
   background-color: darkgray;
+  color: black;
+  font-size: 1em;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 2px;
+}
+
+.btnDev {
+}
+
+.btnChoice {
+  color: blue;
 }

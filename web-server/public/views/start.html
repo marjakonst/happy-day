@@ -1,3 +1,4 @@
+<!-- Note "endless" 'loop'-->
 <video id="vid" class="video" autoplay loop>
   <source src="videos/start.mp4" type="video/mp4" />
   <track
@@ -11,36 +12,72 @@
   Your browser does not support the video tag.
 </video>
 
-<!-- text of this message may be replaced and unhidden -->
-<div id="message" class="overlay dev">Start</div>
+<div class="overlay">
+  <p id="try-again-msg" class="try-again-msg blink" hidden>Nice try! But...</p>
+  <p id="choice-msg" class="choice-msg fadeout">
+    Please put object A or B<br />
+    on the 1st plate
+  </p>
+  <p id="restart-msg" class="restart-msg blink" hidden>
+    Will restart in a few secs... 乁(ツㄏ
+  </p>
+</div>
 
-<!-- These buttons may be unhidden, its text & action may be changed -->
-<div id="buttons" class="overlay buttons dev">
-  <button
-    id="btnNext1"
-    class="btnNext"
-    type="button"
-    onclick="window.location.href='#sceneA';"
-  >
-    --> Scene A
-  </button>
-  <button
-    id="btnNext2"
-    class="btnNext"
-    type="button"
-    onclick="window.location.href='#sceneB';"
-  >
-    --> Scene B
-  </button>
-  <button id="btnBack" class="btnDev" type="button" onclick="history.back()">
-    Back (<--)
-  </button>
-  <button
-    id="btnDev"
-    class="btnDev"
-    type="button"
-    onclick="window.location.href='#dev'"
-  >
-    Dev Menu (≋个≋)
-  </button>
+<!--
+These buttons supposed to be hidden (via CSS) and "clicked" by JS only.
+Note the 'data-obj-regex' custom attribute that defines a RegExp for the
+"choice" of an "object" - it selects the button the JS code "clicks" at.
+(Change the 'dev' class style to unhide these buttons for debugging).
+-->
+<div id="hidden-elements" class="dev">
+  <fieldset>
+    <legend>Scene Start</legend>
+    <button
+      id="btnChoiceOne"
+      class="btnChoice"
+      type="button"
+      onclick="window.location.href='#sceneA';"
+      data-obj-regex="/^A-x-x$/"
+    >
+      --> Scene A
+    </button>
+    <button
+      id="btnChoiceTwo"
+      class="btnChoice"
+      type="button"
+      onclick="window.location.href='#sceneB';"
+      data-obj-regex="/^B-x-x$/"
+    >
+      --> Scene B
+    </button>
+    <fieldset>
+      <button
+        id="btnRestart"
+        class="btnDev"
+        type="button"
+        onclick="window.location.href='#start'"
+        data-obj-regex="/-RESTART$/"
+      >
+        Restart 乁(ツㄏ
+      </button>
+      <button
+        id="btnBack"
+        class="btnDev"
+        type="button"
+        onclick="history.back()"
+        data-obj-regex="/-BACK$/"
+      >
+        Back (<--)
+      </button>
+      <button
+        id="btnDev"
+        class="btnDev"
+        type="button"
+        onclick="window.location.href='#dev'"
+        data-obj-regex="/-DEV$/"
+      >
+        Dev Menu (≋个≋)
+      </button>
+    </fieldset>
+  </fieldset>
 </div>
