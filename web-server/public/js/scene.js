@@ -91,20 +91,20 @@ function Scene(socket) {
   }
 
   /**
-   * Iterates over buttons containing the 'data-obj-regex' attribute,
+   * Iterates over buttons containing the 'data-choice-regex' attribute,
    * and finds the 1st one that matches the `choice` against the RegExp
    * created from the attribute value.
    * @param choice: string
    * @returns HTMLButtonElement|undefined
    */
   function findChosenButton(choice) {
-    // Get all <button> elements which have the 'data-obj-regex' attribute
+    // Get all <button> elements which have the 'data-choice-regex' attribute
     const choiceButtons = Array.from(
       document.getElementsByTagName("button")
-    ).filter((b) => !!b.getAttribute("data-obj-regex"));
+    ).filter((b) => !!b.getAttribute("data-choice-regex"));
 
     return choiceButtons.find((b) => {
-      const regex = new RegExp(b.getAttribute("data-obj-regex"));
+      const regex = new RegExp(b.getAttribute("data-choice-regex"));
       return regex.exec(choice) !== null;
     });
   }

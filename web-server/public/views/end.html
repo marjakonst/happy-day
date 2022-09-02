@@ -22,8 +22,8 @@
 
 <!--
 These buttons supposed to be hidden (via CSS) and "clicked" by JS only.
-Note the 'data-obj-regex' custom attribute that defines a RegExp for the
-"choice" of an "object" - it selects the button the JS code "clicks" at.
+Note the 'data-choice-regex' custom attribute that defines a RegExp for the
+"choice" - it selects the button the JS code "clicks" at.
 (Change the 'dev' class style to unhide these buttons for debugging).
 -->
 <div id="hidden-elements" class="dev">
@@ -35,7 +35,7 @@ Note the 'data-obj-regex' custom attribute that defines a RegExp for the
         class="btnDev"
         type="button"
         onclick="window.location.href='#start'"
-        data-obj-regex="-RESTART$"
+        data-choice-regex="-RESTART$"
       >
         Restart 乁(ツㄏ
       </button>
@@ -44,7 +44,7 @@ Note the 'data-obj-regex' custom attribute that defines a RegExp for the
         class="btnDev"
         type="button"
         onclick="history.back()"
-        data-obj-regex="-BACK$"
+        data-choice-regex="-BACK$"
       >
         Back (<--)
       </button>
@@ -53,7 +53,7 @@ Note the 'data-obj-regex' custom attribute that defines a RegExp for the
         class="btnDev"
         type="button"
         onclick="window.location.href='#dev'"
-        data-obj-regex="-DEV$"
+        data-choice-regex="-DEV$"
       >
         Dev Menu (≋个≋)
       </button>
