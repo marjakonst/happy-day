@@ -4,9 +4,15 @@
   "private": true,
   "license": "MIT",
   "scripts": {
-    "start": "DEBUG='happy-day:*' node ./bin/www",
-    "prettier:fix": "npx prettier --write .",
-    "dev": "DEBUG='happy-day:*' nodemon ./bin/www"
+    "dev:contr": "python ./rfid-backend/fake-controller.py",
+    "dev:server": "DEBUG='happy-day:*' node ./bin/www",
+    "dev:brows": "./scripts/start-app-in-chrome.sh",
+    "start": "pm2 start ecosystem.config.js",
+    "stop": "pm2 stop ecosystem.config.js",
+    "logs": "pm2 logs",
+    "monitor": "pm2 monit",
+    "status": "pm2 status",
+    "prettier:fix": "npx prettier --write ."
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
@@ -14,11 +20,11 @@
     "express": "~4.16.1",
     "http-errors": "~1.6.3",
     "morgan": "~1.9.1",
+    "pm2": "^5.2.0",
     "pug": "^3.0.2",
     "socket.io": "^4.5.1"
   },
   "devDependencies": {
-    "nodemon": "^2.0.19",
     "prettier": "2.7.1"
   }
 }

@@ -15,27 +15,51 @@
 ## To install
 
 ```bash
-# For development
 $ npm install
-# For production
-$ npm install --production
 ```
 
-## To run the HTTP-Server
+## To run the Application
 
-```
-# In dev environment
-npm run dev
-# In prod environment
-npm start
-```
-
-### Play with it
-
-1. Point your browser to [http://localhost:3000](http://localhost:3000)
-2. In another terminal try:
+### Production environment
 
 ```sh
+# Start all components
+$ npm run start
+# Stop all components
+$ npm run stop
+# See the status (if components run)
+$ npm run status
+# See logs
+npm run logs
+# Monitor components
+$ npm run monitor
+```
+
+### Development environment
+
+To start the RFID-controller
+
+```
+$ npm run dev:contr
+```
+
+To start the HTTP server, run (in another terminal)
+
+```
+npm run dev:server
+```
+
+To start the Browser-App in the Chrome browser
+
+```
+$ npm run dev:brows
+```
+
+#### Play with it
+
+Start components ([in dev environment](#Development environment)), then open terminal and try...
+
+```
 # Simulate a "choice" message from the RFID-controller
 $ curl http://localhost:3000/publish/choice-msg/A-F-x
 
@@ -46,7 +70,7 @@ $ curl http://localhost:3000/publish/navigate-to-page/sceneB
 $ curl http://localhost:3000/publish/navigate-to-page/dev
 ```
 
-3. Try the same from python:
+Try the same from python:
 
 ```
 $ python
@@ -55,6 +79,4 @@ $ python
 >>> req.get('http://localhost:3000/publish/navigate-to-page/start')
 ```
 
-#### TODO:
-
-1. Add a process manager that starts and monitors components.
+TODO: replace fake controller w/ the real one.
