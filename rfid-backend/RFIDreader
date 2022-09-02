@@ -35,7 +35,6 @@ class NFC():
             GPIO.setup(self.boards[loop_id], GPIO.OUT, initial=GPIO.LOW)
 
             if loop_id == rid:
-#                print("RST PIN: " + str(self.boards[loop_id]))
                 GPIO.output(self.boards[loop_id], GPIO.HIGH)
 
         sleep(0.1)
@@ -43,7 +42,7 @@ class NFC():
 
     def read(self, rid):
         if not self.selectBoard(rid):
-            return None 
+            return None
 
         self.reinit()
         cid, val = self.reader.read_no_block()
@@ -62,10 +61,40 @@ class NFC():
 
 def getTagID(rid):
     sleep(0.3)
-#    print(rid)
     id, text = nfc.read(rid)
-#    print("Tag ID: " + str(id))
     return id
+
+def nameTagID(id):   #Here we are going to name IDs.
+ # A-APPLE
+    if id == 584183260835 or id == 584186013337:
+        return "A"
+ # B-SWEETS
+    if id == 584187520736 or id == 584187782631:
+        return "B"
+ # C-BREAD
+    if id == 584187717092 or id == 584187586273:
+        return "C"
+ # D-TEA
+    if id == 584195450473 or id == 584198071873:
+        return "D"
+ # E-CHILI
+    if id == 584190994133 or id == 584190600915:
+        return "E"
+ # F-EGG
+    if id == 584193549836 or id == 584189159368:
+        return "F"
+ # DEV - tag to show the dev menu
+    if id == 972025895400:
+        return "DEV"
+ # BACK - tag "back" in the history of pages
+    if id == 313744567244:
+        return "BACK"
+ # RESTART:
+    if id == 584190535378 or id == 584193615373:
+        return "RESTART"
+    else:
+     #undefined ID or none
+        return "x"
 
 def compareTagID(oldTag,newTag):
     if oldTag!=newTag:
@@ -73,7 +102,7 @@ def compareTagID(oldTag,newTag):
     else:
         return False
 
-#adding global ID variables to store perivous IDs.
+#adding global ID variables to store previous IDs.
 oldID1=0
 oldID2=0
 oldID3=0
@@ -90,9 +119,13 @@ if __name__ == "__main__":
             newID1=getTagID("reader1")
             newID2=getTagID("reader2")
             newID3=getTagID("reader3")
+
+            ID1=nameTagID(newID1)
+            ID2=nameTagID(newID2)
+            ID3=nameTagID(newID3)
+
             if (compareTagID(oldID1,newID1) == True or compareTagID(oldID2,newID2) == True or compareTagID(oldID3,newID3) == True):
-#          if (compareTagID(oldID1,newID1) == True or compareTagID(oldID2,newID2) == True or compareTagID(oldID3,newID3) == True) and (newID1!=None or newID2!=None or newID3!=None):
-                print("ID1: " + str(newID1) + "  " + "ID2: " + str(newID2) + "  " + "ID3: " + str(newID3))
+                print( ID1 + "-" + ID2 + "-" + ID3)
             else:
                 pass
             oldID1=newID1
