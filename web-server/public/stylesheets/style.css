@@ -54,12 +54,20 @@ video::cue {
 }
 
 .fadeout {
-  /* -webkit-animation: fadeout 10s ease-in-out forwards; */
   animation: fadeout;
   animation-duration: 10s;
   animation-timing-function: ease-in-out;
   animation-delay: 2s;
   animation-iteration-count: 3;
+  opacity: 0;
+}
+
+#choice-msg.fadeout {
+  animation: fadeout;
+  animation-duration: 10s;
+  animation-timing-function: ease-in-out;
+  animation-delay: 5s;
+  animation-iteration-count: infinite;
   opacity: 0;
 }
 

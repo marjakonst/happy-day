@@ -23,8 +23,8 @@
     Nice try! But...
   </p>
   <p id="choice-msg" class="choice-msg fadeout">
-    Please put object B or F<br />
-    on the 2nd plate
+    Please put F on the 2nd plate<br />
+    or put B on the 1st plate
   </p>
   <p id="restart-msg" class="restart-msg blink" hidden>
     Will restart in a few secs... 乁(ツㄏ
@@ -45,7 +45,7 @@ Note the 'data-choice-regex' custom attribute that defines a RegExp for the
       class="btnChoice"
       type="button"
       onclick="window.location.href='#connectAF';"
-      data-choice-regex="^?-F-x$"
+      data-choice-regex="^[Ax]-F-x$"
     >
       --> Connector A->F
     </button>
@@ -54,7 +54,7 @@ Note the 'data-choice-regex' custom attribute that defines a RegExp for the
       class="btnChoice"
       type="button"
       onclick="window.location.href='#connectAB';"
-      data-choice-regex="^?-B-x$"
+      data-choice-regex="^[B]-x-x$"
     >
       --> Connector A->B
     </button>

@@ -9,8 +9,8 @@
 
   function initRouter() {
     return new Router([
-      new Route("dev", "dev.html", true),
-      new Route("start", "start.html"),
+      new Route("dev", "dev.html"),
+      new Route("start", "start.html", true),
       new Route("sceneA", "sceneA.html"),
       new Route("sceneB", "sceneB.html"),
       new Route("sceneC1", "sceneC1.html"),

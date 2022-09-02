@@ -23,7 +23,7 @@
     Nice try! But...
   </p>
   <p id="choice-msg" class="choice-msg fadeout">
-    Please put object C or E<br />
+    Please put C or E<br />
     on the 3rd plate
   </p>
   <p id="restart-msg" class="restart-msg blink" hidden>
@@ -45,7 +45,7 @@ Note the 'data-choice-regex' custom attribute that defines a RegExp for the
       class="btnChoice"
       type="button"
       onclick="window.location.href='#connectDC';"
-      data-choice-regex="^?-?-C$"
+      data-choice-regex="^[Bx]-[Dx]-C$"
     >
       --> Connector D->C2
     </button>
@@ -54,7 +54,7 @@ Note the 'data-choice-regex' custom attribute that defines a RegExp for the
       class="btnChoice"
       type="button"
       onclick="window.location.href='#connectDE';"
-      data-choice-regex="^?-?-E$"
+      data-choice-regex="^[Bx]-[Dx]-E$"
     >
       --> Connector D->E
     </button>

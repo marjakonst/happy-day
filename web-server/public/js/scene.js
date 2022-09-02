@@ -16,29 +16,10 @@ function Scene(socket) {
     },
   };
 
-  /**
-   * Initiate the listener of the 'choice-msg' events.
-   * The event is supposed to contain a message with a "choice" that defines
-   * which one of the "choice buttons" the listener shall "click" at.
-   */
+  // Initiate the listener of the 'choice-msg' events.
   function init(emitter) {
     // listen to events and process them
-    emitter.on("choice-msg", (msg, cb) => {
-      console.log(`new controller message: ${JSON.stringify(msg)}`);
-
-      const chosenBtn = findChosenButton(msg);
-
-      if (!chosenBtn) {
-        // No button found that match the `msg`
-        console.log(`[ERR] unexpected controller msg: ${msg}`);
-        showRetryMsg();
-        return cb("ERR");
-      }
-
-      console.log(`[OK] chosen button: ${chosenBtn.id}`);
-      chosenBtn.click();
-      return cb("OK");
-    });
+    emitter.on("choice-msg", processChoiceMsg);
   }
 
   function showRestartMsg() {
@@ -68,6 +49,25 @@ function Scene(socket) {
     el.setAttribute("data-replay-count", `${remains}`);
 
     return remains >= 1;
+  }
+
+  // Processes the message containing the "choice".
+  // ("choice" defines which "choice button" shall be programmatically clicked.
+  function processChoiceMsg(msg, cb = () => {}) {
+    console.log(`new controller message: ${JSON.stringify(msg)}`);
+
+    const chosenBtn = findChosenButton(msg);
+
+    if (!chosenBtn) {
+      // No button found that match the `msg`
+      console.log(`[ERR] unexpected controller msg: ${msg}`);
+      showRetryMsg();
+      return cb("ERR");
+    }
+
+    console.log(`[OK] chosen button: ${chosenBtn.id}`);
+    chosenBtn.click();
+    return cb("OK");
   }
 
   function unhide(id) {
@@ -111,6 +111,8 @@ function Scene(socket) {
 
   function showRetryMsg() {
     const el = unhide("try-again-msg");
+    if (!el) return;
+
     // Restart the CSS animation by removing then adding the class
     const animationClass = "blink-few-times";
     if (el && el.classList.contains(animationClass)) {
