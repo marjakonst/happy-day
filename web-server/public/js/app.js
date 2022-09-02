@@ -1,8 +1,14 @@
+/* global window socket Scene */
 "use strict";
 
 (function () {
-  function init() {
-    new Router([
+  window["App"] = {
+    router: initRouter(),
+    scene: Scene(socket),
+  };
+
+  function initRouter() {
+    return new Router([
       new Route("dev", "dev.html", true),
       new Route("start", "start.html"),
       new Route("sceneA", "sceneA.html"),
@@ -24,5 +30,4 @@
       new Route("connectFE", "connectFE.html"),
     ]);
   }
-  init();
 })();

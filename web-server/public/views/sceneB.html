@@ -3,7 +3,7 @@
   id="vid"
   class="video"
   autoplay
-  onended="Scene.onVideoPlayed() ? this.play() : Scene.doRestart();"
+  onended="App.scene.onVideoPlayed() ? this.play() : App.scene.doRestart();"
   data-replay-count="3"
 >
   <source src="videos/sceneB.mp4" type="video/mp4" />
@@ -19,7 +19,9 @@
 </video>
 
 <div class="overlay">
-  <p id="try-again-msg" class="try-again-msg blink" hidden>Nice try! But...</p>
+  <p id="try-again-msg" class="try-again-msg blink-few-times" hidden>
+    Nice try! But...
+  </p>
   <p id="choice-msg" class="choice-msg fadeout">
     Please put object C or D<br />
     on the 2nd plate
@@ -43,7 +45,7 @@ Note the 'data-obj-regex' custom attribute that defines a RegExp for the
       class="btnChoice"
       type="button"
       onclick="window.location.href='#connectBD';"
-      data-obj-regex="/^?-D-x$/"
+      data-obj-regex="^?-D-x$"
     >
       --> Connector B->D
     </button>
@@ -52,7 +54,7 @@ Note the 'data-obj-regex' custom attribute that defines a RegExp for the
       class="btnChoice"
       type="button"
       onclick="window.location.href='#connectBC';"
-      data-obj-regex="/^?-C-x$/"
+      data-obj-regex="^?-C-x$"
     >
       --> connector B->C1
     </button>
@@ -62,7 +64,7 @@ Note the 'data-obj-regex' custom attribute that defines a RegExp for the
         class="btnDev"
         type="button"
         onclick="window.location.href='#start'"
-        data-obj-regex="/-RESTART$/"
+        data-obj-regex="-RESTART$"
       >
         Restart 乁(ツㄏ
       </button>
@@ -71,7 +73,7 @@ Note the 'data-obj-regex' custom attribute that defines a RegExp for the
         class="btnDev"
         type="button"
         onclick="history.back()"
-        data-obj-regex="/-BACK$/"
+        data-obj-regex="-BACK$"
       >
         Back (<--)
       </button>
@@ -80,7 +82,7 @@ Note the 'data-obj-regex' custom attribute that defines a RegExp for the
         class="btnDev"
         type="button"
         onclick="window.location.href='#dev'"
-        data-obj-regex="/-DEV$/"
+        data-obj-regex="-DEV$"
       >
         Dev Menu (≋个≋)
       </button>

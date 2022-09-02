@@ -21,7 +21,7 @@ video::cue {
 .video {
   position: relative;
   z-index: 0;
-  padding: 0px;
+  padding: 0;
   width: 100%;
   height: 100%;
 }
@@ -59,7 +59,7 @@ video::cue {
   animation-duration: 10s;
   animation-timing-function: ease-in-out;
   animation-delay: 2s;
-  animation-iteration-count: 2;
+  animation-iteration-count: 3;
   opacity: 0;
 }
 
@@ -87,6 +87,13 @@ video::cue {
   animation-duration: 2s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
+}
+
+.blink-few-times {
+  animation: blinker;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: 3;
 }
 
 @keyframes blinker {
