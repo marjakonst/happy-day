@@ -2,8 +2,8 @@ module.exports = {
   apps: [
     {
       name: "contr",
-      script: "./rfid-backend/fake-controller.py",
-      watch: "./rfid-backend/",
+      script: "./rfid/rfid-controller.py",
+      watch: "./rfid/",
     },
     {
       name: "server",
@@ -16,7 +16,7 @@ module.exports = {
     },
     {
       name: "brows",
-      script: "./scripts/start-app-in-chrome.sh",
+      script: "./bin/start-app-in-chrome.sh",
       autorestart: false,
     },
   ],
