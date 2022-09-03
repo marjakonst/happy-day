@@ -23,10 +23,9 @@
     Nice try! But...
   </p>
   <p id="choice-msg" class="choice-msg fadeout">
-    Please put EGG<br />
-    on the 2nd plate<br />
-    ... or SWEETS<br />
-    on the 1st plate
+    Please put<br />
+    EGG or SWEETS<br />
+    on the 2nd plate
   </p>
   <p id="restart-msg" class="restart-msg blink" hidden>
     Will restart in a few secs... 乁(ツㄏ
@@ -55,10 +54,10 @@ Note the 'data-choice-regex' custom attribute that defines a RegExp for the
       id="btnChoiceTwo"
       class="btnChoice"
       type="button"
-      onclick="window.location.href='#connectAB';"
-      data-choice-regex="^[B]-x-x$"
+      onclick="window.location.href='#connectAB2';"
+      data-choice-regex="^[Ax]-B-x$"
     >
-      --> Connector A->B
+      --> Connector A->B2
     </button>
     <fieldset>
       <button

@@ -4,28 +4,35 @@ from time import sleep
 import requests as req
 
 def fakeUserChoices():
+  # rote Start->A->B2->D2->End
   req.get('http://localhost:3000/publish/choice-msg/A-x-x')
   sleep(4)
-  req.get('http://localhost:3000/publish/choice-msg/B-x-x')
+  req.get('http://localhost:3000/publish/choice-msg/A-B-x')
   sleep(6)
-  req.get('http://localhost:3000/publish/choice-msg/B-D-x')
-  sleep(6)
-  req.get('http://localhost:3000/publish/choice-msg/B-D-E')
+  req.get('http://localhost:3000/publish/choice-msg/A-B-D')
   sleep(15)
+
+  # rote Start->A->F-C2->End
   req.get('http://localhost:3000/publish/choice-msg/A-x-x')
   sleep(4)
   req.get('http://localhost:3000/publish/choice-msg/A-F-x')
   sleep(6)
   req.get('http://localhost:3000/publish/choice-msg/A-F-C')
+  # End->Start
   sleep(15)
+
+  # rote Start->A->F->E->End
   req.get('http://localhost:3000/publish/choice-msg/A-x-x')
   sleep(4)
   req.get('http://localhost:3000/publish/choice-msg/A-F-x')
   sleep(6)
   req.get('http://localhost:3000/publish/choice-msg/A-F-E')
+  # End->Start
   sleep(15)
+
+  # rote Start->B1->D1->E->End
   req.get('http://localhost:3000/publish/choice-msg/B-x-x')
-  sleep(6)
+  sleep(4)
   req.get('http://localhost:3000/publish/choice-msg/B-D-x')
   sleep(6)
   req.get('http://localhost:3000/publish/choice-msg/B-D-E')

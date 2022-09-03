@@ -6,13 +6,13 @@
   onended="App.scene.onVideoPlayed() ? this.play() : App.scene.doRestart();"
   data-replay-count="3"
 >
-  <source src="videos/sceneB.mp4" type="video/mp4" />
+  <source src="videos/sceneB2.mp4" type="video/mp4" />
   <track
     id="track"
     label="Hints"
     kind="subtitles"
     srclang="en"
-    src="videos/vtt/sceneB.vtt"
+    src="videos/vtt/sceneB2.vtt"
     default
   />
   Your browser does not support the video tag.
@@ -25,7 +25,7 @@
   <p id="choice-msg" class="choice-msg fadeout">
     Please put<br />
     BREAD or TEA<br />
-    on the 2nd plate
+    on the 3rd plate
   </p>
   <p id="restart-msg" class="restart-msg blink" hidden>
     Will restart in a few secs... 乁(ツㄏ
@@ -40,24 +40,24 @@ Note the 'data-choice-regex' custom attribute that defines a RegExp for the
 -->
 <div id="hidden-elements" class="dev">
   <fieldset>
-    <legend>Scene B</legend>
+    <legend>Scene B2</legend>
     <button
       id="btnChoiceOne"
       class="btnChoice"
       type="button"
-      onclick="window.location.href='#connectBD';"
-      data-choice-regex="^[Bx]-D-x$"
+      onclick="window.location.href='#connectB2D2';"
+      data-choice-regex="^[Ax]-[Bx]-D$"
     >
-      --> Connector B->D
+      --> Connector B2->D2
     </button>
     <button
       id="btnChoiceTwo"
       class="btnChoice"
       type="button"
-      onclick="window.location.href='#connectBC';"
-      data-choice-regex="^[Bx]-C-x$"
+      onclick="window.location.href='#connectB2C2';"
+      data-choice-regex="^[Ax]-[Bx]-C$"
     >
-      --> connector B->C1
+      --> Connector B2->C2
     </button>
     <fieldset>
       <button

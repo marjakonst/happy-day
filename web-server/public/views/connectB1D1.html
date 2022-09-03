@@ -1,0 +1,51 @@
+<!-- no 'loop', 'onended' points to the new scene -->
+<video
+  id="vid"
+  class="video"
+  autoplay
+  onended="window.location.href='#sceneD1';"
+>
+  <source src="videos/connectBD.mp4" type="video/mp4" />
+  <track
+    id="track"
+    label="Hints"
+    kind="subtitles"
+    srclang="en"
+    src="videos/vtt/connectBD.vtt"
+    default
+  />
+  Your browser does not support the video tag.
+</video>
+
+<!-- These buttons may be unhidden, its text & action may be changed -->
+<div id="hidden-elements" class="dev">
+  <fieldset>
+    <legend>Connector B1->D1</legend>
+    <fieldset>
+      <button
+        id="btnRestart"
+        class="btnDev"
+        type="button"
+        onclick="window.location.href='#start'"
+      >
+        Restart 乁(ツㄏ
+      </button>
+      <button
+        id="btnBack"
+        class="btnDev"
+        type="button"
+        onclick="history.back()"
+      >
+        Back (<--)
+      </button>
+      <button
+        id="btnDev"
+        class="btnDev"
+        type="button"
+        onclick="window.location.href='#dev'"
+      >
+        Dev Menu (≋个≋)
+      </button>
+    </fieldset>
+  </fieldset>
+</div>

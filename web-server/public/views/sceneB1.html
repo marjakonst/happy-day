@@ -1,12 +1,18 @@
-<!-- Note "endless" 'loop'-->
-<video id="vid" class="video" autoplay loop>
-  <source src="videos/start.mp4" type="video/mp4" />
+<!-- 'onended' and 'data-replay-count' define replay/restart logic -->
+<video
+  id="vid"
+  class="video"
+  autoplay
+  onended="App.scene.onVideoPlayed() ? this.play() : App.scene.doRestart();"
+  data-replay-count="3"
+>
+  <source src="videos/sceneB1.mp4" type="video/mp4" />
   <track
     id="track"
     label="Hints"
     kind="subtitles"
     srclang="en"
-    src="videos/vtt/start.vtt"
+    src="videos/vtt/sceneB1.vtt"
     default
   />
   Your browser does not support the video tag.
@@ -16,10 +22,10 @@
   <p id="try-again-msg" class="try-again-msg blink-few-times" hidden>
     Nice try! But...
   </p>
-  <p id="choice-msg" class="choice-msg fadeout-start">
+  <p id="choice-msg" class="choice-msg fadeout">
     Please put<br />
-    APPLE or SWEETS<br />
-    on the 1st plate
+    BREAD or TEA<br />
+    on the 2nd plate
   </p>
   <p id="restart-msg" class="restart-msg blink" hidden>
     Will restart in a few secs... 乁(ツㄏ
@@ -34,24 +40,15 @@ Note the 'data-choice-regex' custom attribute that defines a RegExp for the
 -->
 <div id="hidden-elements" class="dev">
   <fieldset>
-    <legend>Scene Start</legend>
+    <legend>Scene B1</legend>
     <button
       id="btnChoiceOne"
       class="btnChoice"
       type="button"
-      onclick="window.location.href='#sceneA';"
-      data-choice-regex="^A-x-x$"
+      onclick="window.location.href='#connectB1D1';"
+      data-choice-regex="^[Bx]-D-x$"
     >
-      --> Scene A
-    </button>
-    <button
-      id="btnChoiceTwo"
-      class="btnChoice"
-      type="button"
-      onclick="window.location.href='#sceneB1';"
-      data-choice-regex="^B-x-x$"
-    >
-      --> Scene B1
+      --> Connector B1->D1
     </button>
     <fieldset>
       <button
