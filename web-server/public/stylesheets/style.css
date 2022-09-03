@@ -62,7 +62,7 @@ video::cue {
   opacity: 0;
 }
 
-#choice-msg.fadeout {
+.fadeout-start {
   animation: fadeout;
   animation-duration: 10s;
   animation-timing-function: ease-in-out;
