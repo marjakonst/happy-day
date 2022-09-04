@@ -1,13 +1,16 @@
-# Happy Day Server
+# Happy Day App
 
-"Happy Day" is a WebApp consisting from the following components:
+It is the application written for and used by the [artistic work "Happy Day"]() by [@constvigilance]().
+
+It is a Web App consisting from the following components:
 
 1. RFID-controller
    > _A python application that reads states of a few RFID-readers and whenever the state is changed, via the HTTP-server, it notifies the Browser-App on the new state._<br/>
    > This new state is considered to be a user "choice" which the Browser-App shall react to.
 2. HTTP-Server
    > _A simple web-server that serves files and pushes the "choices" (notifications) from the RFID-controller to the Browser-App ._
-3. Browser-App
+3. Browser-App <br />
+   (see [web-server/README.md](web-server/README.md))
    > _A single-page application which requests files from the HTTP-Server, and gets notified by the HTTP-Server on a new "choice"._<br/>
    > The application shows "scenes". Every scene has a video to play and a set of messages for user.<br/>
    > Reacting on "choices", the application shows messages and switches between scenes according to a predefined [scenario](web-server/public/images/scene_flow.jpg).<br/>
