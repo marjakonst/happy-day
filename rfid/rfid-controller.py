@@ -4,7 +4,7 @@ from time import sleep
 import requests as req
 
 def fakeUserChoices():
-  # rote Start->A->B2->D2->End
+  # route Start->A->B2->D2->End
   req.get('http://localhost:3000/publish/choice-msg/A-x-x')
   sleep(4)
   req.get('http://localhost:3000/publish/choice-msg/A-B-x')
@@ -12,16 +12,15 @@ def fakeUserChoices():
   req.get('http://localhost:3000/publish/choice-msg/A-B-D')
   sleep(15)
 
-  # rote Start->A->F-C2->End
+  # route Start->A->B2->C2->End
   req.get('http://localhost:3000/publish/choice-msg/A-x-x')
   sleep(4)
-  req.get('http://localhost:3000/publish/choice-msg/A-F-x')
+  req.get('http://localhost:3000/publish/choice-msg/A-B-x')
   sleep(6)
-  req.get('http://localhost:3000/publish/choice-msg/A-F-C')
-  # End->Start
+  req.get('http://localhost:3000/publish/choice-msg/A-B-C')
   sleep(15)
 
-  # rote Start->A->F->E->End
+  # route Start->A->F->E->End
   req.get('http://localhost:3000/publish/choice-msg/A-x-x')
   sleep(4)
   req.get('http://localhost:3000/publish/choice-msg/A-F-x')
@@ -30,12 +29,39 @@ def fakeUserChoices():
   # End->Start
   sleep(15)
 
-  # rote Start->B1->D1->E->End
+  # route Start->A->F-C2->End
+  req.get('http://localhost:3000/publish/choice-msg/A-x-x')
+  sleep(4)
+  req.get('http://localhost:3000/publish/choice-msg/A-F-x')
+  sleep(6)
+  req.get('http://localhost:3000/publish/choice-msg/A-F-C')
+  # End->Start
+  sleep(15)
+
+  # route Start->B1->D1-C2->End
+  req.get('http://localhost:3000/publish/choice-msg/B-x-x')
+  sleep(4)
+  req.get('http://localhost:3000/publish/choice-msg/B-D-x')
+  sleep(6)
+  req.get('http://localhost:3000/publish/choice-msg/B-D-C')
+  # End->Start
+  sleep(15)
+
+  # route Start->B1->D1->E->End
   req.get('http://localhost:3000/publish/choice-msg/B-x-x')
   sleep(4)
   req.get('http://localhost:3000/publish/choice-msg/B-D-x')
   sleep(6)
   req.get('http://localhost:3000/publish/choice-msg/B-D-E')
+  # End->Start
+  sleep(15)
+
+  # route Start->B1-CD1->E->End
+  req.get('http://localhost:3000/publish/choice-msg/B-x-x')
+  sleep(4)
+  req.get('http://localhost:3000/publish/choice-msg/B-C-x')
+  sleep(6)
+  req.get('http://localhost:3000/publish/choice-msg/B-C-E')
 
 if __name__ == "__main__":
   print("fake controller is running...")
