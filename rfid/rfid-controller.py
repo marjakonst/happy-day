@@ -2,6 +2,7 @@ import RPi.GPIO as GPIO
 from mfrc522 import SimpleMFRC522
 import spidev
 from time import sleep
+import requests as req
 
 
 class NFC():
@@ -125,7 +126,9 @@ if __name__ == "__main__":
             ID3=nameTagID(newID3)
 
             if (compareTagID(oldID1,newID1) == True or compareTagID(oldID2,newID2) == True or compareTagID(oldID3,newID3) == True):
-                print( ID1 + "-" + ID2 + "-" + ID3)
+                choice = ID1 + "-" + ID2 + "-" + ID3
+                print(choice)
+                req.get('http://localhost:3000/publish/choice-msg/' + choice)
             else:
                 pass
             oldID1=newID1
