@@ -1,6 +1,6 @@
 # Happy Day App
 
-It is the application written for and used by the [artistic work "Happy Day"]() by [@constvigilance]().
+It is the application written for and used by the [artistic work "Soup Kitchen. A recipe of one Bright Day"]() by [@constvigilance]().
 
 It is a Web App consisting from the following components:
 
