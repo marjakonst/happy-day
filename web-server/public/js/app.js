@@ -10,7 +10,7 @@
   function initRouter() {
     return new Router([
       new Route("dev", "dev.html"),
-      new Route("start", "start.html", true),
+      new Route("sceneStart", "sceneStart.html", true),
       new Route("sceneA", "sceneA.html"),
       new Route("sceneB1", "sceneB1.html"),
       new Route("sceneB2", "sceneB2.html"),
@@ -20,16 +20,16 @@
       new Route("sceneD2", "sceneD2.html"),
       new Route("sceneE", "sceneE.html"),
       new Route("sceneF", "sceneF.html"),
-      new Route("end", "end.html"),
-      new Route("connectAB2", "connectAB2.html"),
-      new Route("connectAF", "connectAF.html"),
-      new Route("connectB1C1", "connectB1C1.html"),
-      new Route("connectB1D1", "connectB1D1.html"),
-      new Route("connectC1E", "connectC1E.html"),
-      new Route("connectD1C2", "connectD1C2.html"),
-      new Route("connectD1E", "connectD1E.html"),
-      new Route("connectFC2", "connectFC2.html"),
-      new Route("connectFE", "connectFE.html"),
+      new Route("sceneEnd", "sceneEnd.html"),
+      new Route("sceneAB2", "sceneAB2.html"),
+      new Route("sceneAF", "sceneAF.html"),
+      new Route("sceneB1C1", "sceneB1C1.html"),
+      new Route("sceneB1D1", "sceneB1D1.html"),
+      new Route("sceneC1E", "sceneC1E.html"),
+      new Route("sceneD1C2", "sceneD1C2.html"),
+      new Route("sceneD1E", "sceneD1E.html"),
+      new Route("sceneFC2", "sceneFC2.html"),
+      new Route("sceneFE", "sceneFE.html"),
     ]);
   }
 })();

@@ -1,24 +1,21 @@
 <!-- no 'loop', 'onended' points to the new scene -->
-<video id="vid" class="video" autoplay onended="window.location.href='#start';">
-  <source src="videos/end.mp4" type="video/mp4" />
+<video
+  id="vid"
+  class="video"
+  autoplay
+  onended="window.location.href='#sceneEnd';"
+>
+  <source src="videos/videoD2.mp4" type="video/mp4" />
   <track
     id="track"
     label="Hints"
     kind="subtitles"
     srclang="en"
-    src="videos/vtt/end.vtt"
+    src="videos/vtt/videoD2.vtt"
     default
   />
   Your browser does not support the video tag.
 </video>
-
-<div class="overlay">
-  <p id="choice-msg" class="choice-msg fadeout">
-    That's it!<br />
-    Thank you!<br />
-    乁︵(☀◡☀)︵ㄏ
-  </p>
-</div>
 
 <!--
 These buttons supposed to be hidden (via CSS) and "clicked" by JS only.
@@ -28,13 +25,13 @@ Note the 'data-choice-regex' custom attribute that defines a RegExp for the
 -->
 <div id="hidden-elements" class="dev">
   <fieldset>
-    <legend>Scene End</legend>
+    <legend>Scene D2->End</legend>
     <fieldset>
       <button
         id="btnRestart"
         class="btnDev"
         type="button"
-        onclick="window.location.href='#start'"
+        onclick="window.location.href='#sceneStart'"
         data-choice-regex="-RESTART$"
       >
         Restart 乁(ツㄏ

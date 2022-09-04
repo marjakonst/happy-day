@@ -1,34 +1,27 @@
-<!-- 'onended' and 'data-replay-count' define replay/restart logic -->
+<!-- no 'loop', 'onended' points to the new scene -->
 <video
   id="vid"
   class="video"
   autoplay
-  onended="App.scene.onVideoPlayed() ? this.play() : App.scene.doRestart();"
-  data-replay-count="3"
+  onended="window.location.href='#sceneStart';"
 >
-  <source src="videos/videoB.mp4" type="video/mp4" />
+  <source src="videos/videoEnd.mp4" type="video/mp4" />
   <track
     id="track"
     label="Hints"
     kind="subtitles"
     srclang="en"
-    src="videos/vtt/videoB.vtt"
+    src="videos/vtt/videoEnd.vtt"
     default
   />
   Your browser does not support the video tag.
 </video>
 
 <div class="overlay">
-  <p id="try-again-msg" class="try-again-msg blink-few-times" hidden>
-    Nice try! But...
-  </p>
   <p id="choice-msg" class="choice-msg fadeout">
-    Please put<br />
-    BREAD or TEA<br />
-    on the 3rd plate
-  </p>
-  <p id="restart-msg" class="restart-msg blink" hidden>
-    Will restart in a few secs... 乁(ツㄏ
+    That's it!<br />
+    Thank you!<br />
+    乁︵(☀◡☀)︵ㄏ
   </p>
 </div>
 
@@ -40,25 +33,7 @@ Note the 'data-choice-regex' custom attribute that defines a RegExp for the
 -->
 <div id="hidden-elements" class="dev">
   <fieldset>
-    <legend>Scene B2</legend>
-    <button
-      id="btnChoiceOne"
-      class="btnChoice"
-      type="button"
-      onclick="window.location.href='#sceneB2D2';"
-      data-choice-regex="^[Ax]-[Bx]-D$"
-    >
-      --> Scene B2->D2
-    </button>
-    <button
-      id="btnChoiceTwo"
-      class="btnChoice"
-      type="button"
-      onclick="window.location.href='#sceneB2C2';"
-      data-choice-regex="^[Ax]-[Bx]-C$"
-    >
-      --> Scene B2->C2
-    </button>
+    <legend>Scene End->Start</legend>
     <fieldset>
       <button
         id="btnRestart"

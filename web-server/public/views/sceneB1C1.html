@@ -3,36 +3,30 @@
   id="vid"
   class="video"
   autoplay
-  onended="window.location.href='#sceneEnd';"
+  onended="window.location.href='#sceneC1';"
 >
-  <source src="videos/videoC2.mp4" type="video/mp4" />
+  <source src="videos/videoBC.mp4" type="video/mp4" />
   <track
     id="track"
     label="Hints"
     kind="subtitles"
     srclang="en"
-    src="videos/vtt/videoC2.vtt"
+    src="videos/vtt/videoBC.vtt"
     default
   />
   Your browser does not support the video tag.
 </video>
 
-<!--
-These buttons supposed to be hidden (via CSS) and "clicked" by JS only.
-Note the 'data-choice-regex' custom attribute that defines a RegExp for the
-"choice" - it selects the button the JS code "clicks" at.
-(Change the 'dev' class style to unhide these buttons for debugging).
--->
+<!-- These buttons may be unhidden, its text & action may be changed -->
 <div id="hidden-elements" class="dev">
   <fieldset>
-    <legend>Scene C2->End</legend>
+    <legend>Scene B1->C1</legend>
     <fieldset>
       <button
         id="btnRestart"
         class="btnDev"
         type="button"
         onclick="window.location.href='#sceneStart'"
-        data-choice-regex="-RESTART$"
       >
         Restart 乁(ツㄏ
       </button>
@@ -41,7 +35,6 @@ Note the 'data-choice-regex' custom attribute that defines a RegExp for the
         class="btnDev"
         type="button"
         onclick="history.back()"
-        data-choice-regex="-BACK$"
       >
         Back (<--)
       </button>
@@ -50,7 +43,6 @@ Note the 'data-choice-regex' custom attribute that defines a RegExp for the
         class="btnDev"
         type="button"
         onclick="window.location.href='#dev'"
-        data-choice-regex="-DEV$"
       >
         Dev Menu (≋个≋)
       </button>

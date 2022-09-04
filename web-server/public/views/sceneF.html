@@ -6,13 +6,13 @@
   onended="App.scene.onVideoPlayed() ? this.play() : App.scene.doRestart();"
   data-replay-count="3"
 >
-  <source src="videos/sceneF.mp4" type="video/mp4" />
+  <source src="videos/videoF.mp4" type="video/mp4" />
   <track
     id="track"
     label="Hints"
     kind="subtitles"
     srclang="en"
-    src="videos/vtt/sceneF.vtt"
+    src="videos/vtt/videoF.vtt"
     default
   />
   Your browser does not support the video tag.
@@ -45,26 +45,26 @@ Note the 'data-choice-regex' custom attribute that defines a RegExp for the
       id="btnChoiceOne"
       class="btnChoice"
       type="button"
-      onclick="window.location.href='#connectFC2';"
+      onclick="window.location.href='#sceneFC2';"
       data-choice-regex="^[Ax]-[Fx]-C$"
     >
-      --> Connector F->C2
+      --> Scene F->C2
     </button>
     <button
       id="btnChoiceTwo"
       class="btnChoice"
       type="button"
-      onclick="window.location.href='#connectFE';"
+      onclick="window.location.href='#sceneFE';"
       data-choice-regex="^[Ax]-[Fx]-E$"
     >
-      --> Connector F->E
+      --> Scene F->E
     </button>
     <fieldset>
       <button
         id="btnRestart"
         class="btnDev"
         type="button"
-        onclick="window.location.href='#start'"
+        onclick="window.location.href='#sceneStart'"
         data-choice-regex="-RESTART$"
       >
         Restart 乁(ツㄏ
