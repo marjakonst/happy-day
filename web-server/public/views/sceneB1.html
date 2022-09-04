@@ -42,7 +42,16 @@ Note the 'data-choice-regex' custom attribute that defines a RegExp for the
   <fieldset>
     <legend>Scene B1</legend>
     <button
-      id="btnChoiceOne"
+            id="btnChoiceOne"
+            class="btnChoice"
+            type="button"
+            onclick="window.location.href='#connectB1C1';"
+            data-choice-regex="^[Bx]-C-x$"
+    >
+      --> Connector B1->C1
+    </button>
+    <button
+      id="btnChoiceTwo"
       class="btnChoice"
       type="button"
       onclick="window.location.href='#connectB1D1';"
