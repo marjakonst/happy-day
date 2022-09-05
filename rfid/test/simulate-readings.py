@@ -77,13 +77,7 @@ def fakeUserChoices():
   sleep(15)
 
 if __name__ == "__main__":
-  print("fake controller is running...")
+  print("simulating RFID readings...")
   print("Ctr+c to cancel")
 
-  # Let's simulate readings of RFID-sensors
-  sleep(10)
   fakeUserChoices()
-
-  # then do nothing until stopped
-  while True:
-    sleep(1)

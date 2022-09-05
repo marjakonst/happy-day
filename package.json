@@ -4,7 +4,8 @@
   "private": true,
   "license": "MIT",
   "scripts": {
-    "dev:contr": "python ./rfid/rfid-controller.py",
+    "dev:contr": "python ./rfid/test/rfid-fake-controller.py",
+    "dev:contr:simulate": "python ./rfid/test/simulate-readings.py",
     "dev:server": "DEBUG='happy-day:*' node ./bin/www",
     "dev:brows": "bin/start-app-in-chrome.sh",
     "start": "pm2 start ecosystem.config.js",
