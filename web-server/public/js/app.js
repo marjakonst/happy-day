@@ -25,6 +25,7 @@
       new Route("sceneAF", "sceneAF.html"),
       new Route("sceneB1C1", "sceneB1C1.html"),
       new Route("sceneB1D1", "sceneB1D1.html"),
+      new Route("sceneC1D2", "sceneC1D2.html"),
       new Route("sceneC1E", "sceneC1E.html"),
       new Route("sceneD1C2", "sceneD1C2.html"),
       new Route("sceneD1E", "sceneD1E.html"),
