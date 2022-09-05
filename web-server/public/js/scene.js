@@ -6,13 +6,13 @@ function Scene(socket) {
   return {
     onVideoPlayed,
     doRestart,
-    showRestartMsg,
 
     // Exposed for debugging only
     _debug: {
       clickBtnById,
       findChosenButton,
       showRetryMsg,
+      showRestartMsg,
     },
   };
 
