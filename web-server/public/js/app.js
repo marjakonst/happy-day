@@ -1,10 +1,16 @@
-/* global window socket Scene */
+/* global socket Scene */
 "use strict";
 
 (function () {
+  const logger = LogSender(socket);
+
+  window.addEventListener("hashchange", ({ newURL }) => {
+    logger.log(`New URL: ${newURL}`);
+  });
+
   window["App"] = {
     router: initRouter(),
-    scene: Scene(socket),
+    scene: Scene(socket, logger),
   };
 
   function initRouter() {

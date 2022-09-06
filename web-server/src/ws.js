@@ -11,8 +11,16 @@ function addWsServer(httpServer) {
   io.on("connection", (socket) => {
     debug(`client connected, (socketId: ${socket.id})`);
 
-    socket.on("disconnect", function () {
+    socket.on("disconnect", () => {
       debug("client disconnected");
+    });
+
+    socket.on("info", (msg) => {
+      debug(`info-msg: ${msg}`);
+    });
+
+    socket.on("error", (msg) => {
+      debug(`error-msg: ${msg}`);
     });
   });
 

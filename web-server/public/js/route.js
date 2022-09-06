@@ -1,13 +1,13 @@
 "use strict";
 
-function Route(name, htmlName, defaultRoute) {
+function Route(name, htmlName, defaultRoute, logger = console) {
   try {
     if (!name || !htmlName) {
       throw "error: name and htmlName params are mandatories";
     }
     this.constructor(name, htmlName, defaultRoute);
   } catch (e) {
-    console.error(e);
+    logger.error(e);
   }
 }
 

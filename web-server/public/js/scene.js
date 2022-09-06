@@ -1,6 +1,6 @@
 "use strict";
 
-function Scene(socket) {
+function Scene(socket, logger = console) {
   init(socket);
 
   return {
@@ -17,10 +17,10 @@ function Scene(socket) {
     },
   };
 
-  // Initiate the listener of the 'choice-msg' events.
+  // Initiate the listener of 'choice-msg' and 'navigate-to-page' events.
   function init(emitter) {
-    // listen to events and process them
     emitter.on("choice-msg", processChoiceMsg);
+    emitter.on("navigate-to-page", switchToScene);
   }
 
   function showRestartMsg() {
@@ -35,7 +35,7 @@ function Scene(socket) {
   function toggleHidden() {
     const el = document.getElementById("dev-els");
     if (!el) {
-      console.log("[ERR] no element found with id 'dev-els'");
+      logger.error("no element found with id 'dev-els'");
       return;
     }
     el.hidden = !el.hidden;
@@ -65,20 +65,28 @@ function Scene(socket) {
   // Processes the message containing the "choice".
   // ("choice" defines which "choice button" shall be programmatically clicked.
   function processChoiceMsg(msg, cb = () => {}) {
-    console.log(`new controller message: ${JSON.stringify(msg)}`);
+    logger.log(`new controller message: ${JSON.stringify(msg)}`);
 
     const chosenBtn = findChosenButton(msg);
 
     if (!chosenBtn) {
       // No button found that match the `msg`
-      console.log(`[ERR] unexpected controller msg: ${msg}`);
+      logger.error(`unexpected controller msg: ${msg}`);
       showRetryMsg();
       return cb("ERR");
     }
 
-    console.log(`[OK] chosen button: ${chosenBtn.id}`);
+    logger.log(`chosen button: ${chosenBtn.id}`);
     chosenBtn.click();
     return cb("OK");
+  }
+
+  function switchToScene(msg, cb = () => {}) {
+    logger.log(`new navigate command message: ${JSON.stringify(msg)}`);
+    const newHref = `${window.location.href.replace(/#.+\/?$/, "")}#${msg}`;
+    logger.log(`switching to scene ${newHref}`);
+    window.location.assign(newHref);
+    cb("OK");
   }
 
   function unhide(id) {
@@ -86,7 +94,7 @@ function Scene(socket) {
     if (el) {
       el.hidden = false;
     } else {
-      console.error(`Element with id=${id} not found`);
+      logger.error(`Element with id=${id} not found`);
     }
     return el;
   }
@@ -96,7 +104,7 @@ function Scene(socket) {
     if (btn) {
       btn.click();
     } else {
-      console.error(`Button with id=${id} not found`);
+      logger.error(`Button with id=${id} not found`);
     }
     return btn;
   }

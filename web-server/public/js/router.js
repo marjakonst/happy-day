@@ -1,6 +1,6 @@
 "use strict";
 
-function Router(routes) {
+function Router(routes, logger = console) {
   try {
     if (!routes) {
       throw "error: routes param is mandatory";
@@ -8,7 +8,7 @@ function Router(routes) {
     this.constructor(routes);
     this.init();
   } catch (e) {
-    console.error(e);
+    logger.error(e);
   }
 }
 
