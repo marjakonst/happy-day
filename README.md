@@ -1,6 +1,6 @@
 # Happy Day App
 
-Written and used for the [artistic work "Soup Kitchen. A recipe of one Bright Day"](#artistic-elements) by [@constvigilance]().
+Written and used for the [art project "Soup Kitchen. A recipe of one Bright Day"](#artistic-elements) by [@constvigilance]().
 
 <img src="web-server/public/images/kitchen_trolley_sketch_small.jpg" alt="kitchen trolley sketch" height="480"/>
 
@@ -13,13 +13,13 @@ powered by a 20000 MAh power bank,
 with an [LCD (1024x600 pixels)](web-server/public/images/lcd_testing.jpg)
 and 3 [RFID-RC522 sensors](web-server/public/images/rfid-rc522_layout.jpg) connected.<br />
 (See the [wiring scheme](web-server/public/images/el_wiring_scheme.jpg).)<br />
-The sensors read a few RFID-tags when the latest get placed near the former.
+The sensors read a few RFID-tags when the later get placed near the former.
 
 <img src="web-server/public/images/sensors_and_raspberry_wired.jpg" alt="kitchen trolley sketch" width="480"/>
 
 ### Artistic elements
 
-The hardware is installed on a mobile ["kitchen trolley"](web-server/public/images/kitchen_trolley.jpg), [designed](web-server/public/images/trolley_design2.jpg) and [built](web-server/public/images/kitchen_box_assembly.jpg) for this project, with 3 plates on the "table", which hides RFID sensors beneath them.
+The hardware is installed on a mobile ["kitchen trolley"](web-server/public/images/kitchen_trolley.jpg), [designed](web-server/public/images/trolley_design2.jpg) and [built](web-server/public/images/kitchen_box_assembly.jpg) for this project, with 3 plates on the "table", which hide RFID sensors beneath them.
 
 The RFID-tags are attached to (hidden in) real-world objects (apples, bread slices, tea bags, etc...).
 
@@ -32,11 +32,11 @@ The RFID-tags are attached to (hidden in) real-world objects (apples, bread slic
 The App consisting from the following software components:
 
 1. RFID-controller
-   > _A python application that reads states of a few RFID-readers and whenever the state is changed, via the HTTP-server, it notifies the Browser-App on the new state._<br/>
-   > This new state is considered to be a user "choice" which the Browser-App shall react to.
+   > _A python application that reads states of a few RFID-readers and whenever the state is changed, via the HTTP-server, it notifies the Browser App on the new state._<br/>
+   > This new state is considered to be a user "choice" which the Browser App shall react to.
 2. HTTP-Server
-   > _A simple web-server that serves files and pushes the "choices" (notifications) from the RFID-controller to the Browser-App ._
-3. Browser-App <br />
+   > _A simple web-server that serves files and pushes the "choices" (notifications) from the RFID-controller to the Browser App ._
+3. Browser App <br />
    (see [web-server/README.md](web-server/README.md))
    > _A single-page application which requests files from the HTTP-Server, and gets notified by the HTTP-Server on a new "choice"._<br/>
    > The application shows "scenes". Every scene has a video to play and a set of messages for user.<br/>
@@ -79,7 +79,7 @@ To start the HTTP server, run (in another terminal)
 npm run dev:server
 ```
 
-To start the Browser-App in the Chrome browser
+To start the Browser App in the Chrome browser
 
 ```
 $ npm run dev:brows

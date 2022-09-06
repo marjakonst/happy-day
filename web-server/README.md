@@ -13,7 +13,7 @@ There are scenes of two "kinds":
 - "connector" scene, which, once called, switches to a single pre-defined connected scene<br />
   _(all scenes, including "connectors", listen and react to the ["service" (or dev) choices](#service-choices))_
 
-Every scene has a video to play and a set of messages for user.<br />
+Every scene has a video to play and a set of messages for a user.<br />
 
 ### List of scenes
 
@@ -47,7 +47,7 @@ Every scene has a video to play and a set of messages for user.<br />
 
 A "route" is a sequence of "scenes".<br />
 Those "connector" scenes, which are demonstrated between "choice" scenes, are omitted here.<br />
-_For example, there is the connector scene AB2 that "playing" between the scenes A and B2._
+_For example, there is the connector scene AB2 that "plays" between the scenes A and B2._
 
 | Main (game) routes     | Sequence of "choice triads" |
 |------------------------|-----------------------------|
@@ -72,7 +72,7 @@ _("\*" - means any choice)_
 
 #### Choice IDs
 
-Every _single choice_ are coded with of the following letters:
+Every _single choice_ is coded with of the following letters:
 
 - A, B, C, D, E, F
 
