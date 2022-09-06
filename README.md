@@ -1,8 +1,12 @@
 # Happy Day App
 
-It is the application written for and used by the [artistic work "Soup Kitchen. A recipe of one Bright Day"]() by [@constvigilance]().
+It is the application written and used for the [artistic work "Soup Kitchen. A recipe of one Bright Day"]() by [@constvigilance]().
 
-It is a Web App consisting from the following components:
+## Components
+
+### Software
+
+The App consisting from the following software components:
 
 1. RFID-controller
    > _A python application that reads states of a few RFID-readers and whenever the state is changed, via the HTTP-server, it notifies the Browser-App on the new state._<br/>
@@ -14,6 +18,23 @@ It is a Web App consisting from the following components:
    > _A single-page application which requests files from the HTTP-Server, and gets notified by the HTTP-Server on a new "choice"._<br/>
    > The application shows "scenes". Every scene has a video to play and a set of messages for user.<br/>
    > Reacting on "choices", the application shows messages and switches between scenes according to a predefined [scenario](web-server/public/images/scene_flow.jpg).<br/>
+
+### Hardware
+
+The Software runs on the Raspberry PI single-board computer under the Raspberry Pi OS (formerly Raspbian),
+powered by a 20000 MAh power bank,
+with an [LCD (1024x600 pixels)](web-server/public/images/lcd-debugging.jpg)
+and 3 [RFID-RC522 sensors](web-server/public/images/rfid-rc522_layout.jpg) connected.<br />
+(See the [wiring scheme](web-server/public/images/el_wiring_scheme.jpg).)<br />
+The sensors read a few RFID-tags when the latest get placed near the former.
+
+### Artistic elements
+
+The hardware is installed on a mobile ["kitchen trolley"](web-server/public/images/kitchen-trolley.jpg), [designed](web-server/public/images/kitchen-trolley-design.jpg) and [built](web-server/public/images/kitchen_box_assembly.jpg) for this project, with 3 plates on the "table", which hides RFID sensors beneath them.
+
+The RFID-tags are attached to (hidden in) real-world objects (apples, bread slices, tea bags, etc...).
+
+[Video clips](web-server/public/videos) were authored and [filmed](web-server/public/images/filming2.jpg) according to the [scenario](web-server/public/images/scene_flow.jpg).
 
 ## To install
 
@@ -63,13 +84,19 @@ $ npm run dev:brows
 Start components ([in dev environment](#Development environment)), then open terminal and try...
 
 ```
+# Simulate user choices (complete scenario)
+$ npm run dev:contr:simulate
+```
+
+```
 # Simulate a "choice" message from the RFID-controller
 $ curl http://localhost:3000/publish/choice-msg/A-F-x
 
-# Test switching pages
 $ curl http://localhost:3000/publish/navigate-to-page/start
 $ curl http://localhost:3000/publish/navigate-to-page/sceneA
 $ curl http://localhost:3000/publish/navigate-to-page/sceneB
+
+# Show the dev menu page
 $ curl http://localhost:3000/publish/navigate-to-page/dev
 ```
 
