@@ -43,7 +43,9 @@ video::cue {
   text-align: center;
 }
 
+/* temporally hidden */
 .try-again-msg {
+  visibility: hidden;
   color: indigo;
   font-size: 1em;
   text-align: center;
