@@ -2,7 +2,30 @@
 
 It is the application written and used for the [artistic work "Soup Kitchen. A recipe of one Bright Day"]() by [@constvigilance]().
 
+<img src="web-server/public/images/kitchen_trolley_sketch_small.jpg" alt="kitchen trolley sketch" height="480"/>
+
 ## Components
+
+### Hardware
+
+The App runs on the Raspberry PI single-board computer under the Raspberry Pi OS (formerly Raspbian),
+powered by a 20000 MAh power bank,
+with an [LCD (1024x600 pixels)](web-server/public/images/lcd_testing.jpg)
+and 3 [RFID-RC522 sensors](web-server/public/images/rfid-rc522_layout.jpg) connected.<br />
+(See the [wiring scheme](web-server/public/images/el_wiring_scheme.jpg).)<br />
+The sensors read a few RFID-tags when the latest get placed near the former.
+
+<img src="web-server/public/images/sensors_and_raspberry_wired.jpg" alt="kitchen trolley sketch" width="480"/>
+
+### Artistic elements
+
+The hardware is installed on a mobile ["kitchen trolley"](web-server/public/images/kitchen_trolley.jpg), [designed](web-server/public/images/trolley_design2.jpg) and [built](web-server/public/images/kitchen_box_assembly.jpg) for this project, with 3 plates on the "table", which hides RFID sensors beneath them.
+
+The RFID-tags are attached to (hidden in) real-world objects (apples, bread slices, tea bags, etc...).
+
+[Video clips](web-server/public/videos) were authored and [filmed](web-server/public/images/filming3.jpg) according to the [scenario](web-server/public/images/scene_flow.jpg).
+
+<img src="web-server/public/images/filming2.jpg" alt="kitchen trolley sketch" width="480"/>
 
 ### Software
 
@@ -18,23 +41,6 @@ The App consisting from the following software components:
    > _A single-page application which requests files from the HTTP-Server, and gets notified by the HTTP-Server on a new "choice"._<br/>
    > The application shows "scenes". Every scene has a video to play and a set of messages for user.<br/>
    > Reacting on "choices", the application shows messages and switches between scenes according to a predefined [scenario](web-server/public/images/scene_flow.jpg).<br/>
-
-### Hardware
-
-The Software runs on the Raspberry PI single-board computer under the Raspberry Pi OS (formerly Raspbian),
-powered by a 20000 MAh power bank,
-with an [LCD (1024x600 pixels)](web-server/public/images/lcd-debugging.jpg)
-and 3 [RFID-RC522 sensors](web-server/public/images/rfid-rc522_layout.jpg) connected.<br />
-(See the [wiring scheme](web-server/public/images/el_wiring_scheme.jpg).)<br />
-The sensors read a few RFID-tags when the latest get placed near the former.
-
-### Artistic elements
-
-The hardware is installed on a mobile ["kitchen trolley"](web-server/public/images/kitchen-trolley.jpg), [designed](web-server/public/images/kitchen-trolley-design.jpg) and [built](web-server/public/images/kitchen_box_assembly.jpg) for this project, with 3 plates on the "table", which hides RFID sensors beneath them.
-
-The RFID-tags are attached to (hidden in) real-world objects (apples, bread slices, tea bags, etc...).
-
-[Video clips](web-server/public/videos) were authored and [filmed](web-server/public/images/filming2.jpg) according to the [scenario](web-server/public/images/scene_flow.jpg).
 
 ## To install
 
