@@ -1,5 +1,7 @@
 body {
   padding: 0;
+  margin: 0;
+  overflow: hidden;
   font: 1.5em "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
