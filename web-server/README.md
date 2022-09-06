@@ -10,7 +10,8 @@ The application shows "scenes" according to the [scenario](public/images/scene_f
 There are scenes of two "kinds":
 
 - "choice" scene listens to user "choice", and, according to the "choice", switches to one of the pre-defined "connected" scenes
-- "connector" scene, which, once called, switches to a single pre-defined connected scene
+- "connector" scene, which, once called, switches to a single pre-defined connected scene<br />
+  _(all scenes, including "connectors", listen and react to the ["service" (or dev) choices](#service-choices))_
 
 Every scene has a video to play and a set of messages for user.<br />
 
@@ -63,7 +64,7 @@ _For example, there is the connector scene AB2 that "playing" between the scenes
 |----------------------|---------------|
 | Return to Start      | \*-\*-RESTART |
 | To previous scene    | \*-\*-BACK    |
-| To DEV MENU          | \*-\*-DEV     |
+| Show hidden buttons  | \*-\*-DEV     |
 
 _("\*" - means any choice)_
 
@@ -75,7 +76,8 @@ Every _single choice_ are coded with of the following letters:
 
 - A, B, C, D, E, F
 
-_There are also "service" (or dev) choices, coded as RESTART, BACK, HISTORY._
+#### Service choices
+_There are special (aka "service" or dev) choices - RESTART, BACK, DEV._
 
 ### Choice triads
 

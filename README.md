@@ -1,6 +1,6 @@
 # Happy Day App
 
-It is the application written and used for the [artistic work "Soup Kitchen. A recipe of one Bright Day"]() by [@constvigilance]().
+Written and used for the [artistic work "Soup Kitchen. A recipe of one Bright Day"](#artistic-elements) by [@constvigilance]().
 
 <img src="web-server/public/images/kitchen_trolley_sketch_small.jpg" alt="kitchen trolley sketch" height="480"/>
 
