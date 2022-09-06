@@ -117,5 +117,3 @@ $ python
 >>> req.get('http://localhost:3000/publish/choice-msg/A-F-x')
 >>> req.get('http://localhost:3000/publish/navigate-to-page/start')
 ```
-
-TODO: replace fake controller w/ the real one.

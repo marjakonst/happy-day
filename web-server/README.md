@@ -77,6 +77,7 @@ Every _single choice_ are coded with of the following letters:
 - A, B, C, D, E, F
 
 #### Service choices
+
 _There are special (aka "service" or dev) choices - RESTART, BACK, DEV._
 
 ### Choice triads
@@ -93,6 +94,7 @@ The _triad of choices_ are coded according to the following template.
 
 - <1st choice>-<2nd choice>-<3rd choice> <br />
   _where \<... choice\> is the choice ID, or, the char "x" if the choice is pending._
+
 > Example:<br />
 > A-B-x - user opted for A, then for B, and the 3rd choice is yet pending.
 
