@@ -95,6 +95,9 @@ $ npm run dev:contr:simulate
 ```
 
 ```
+# Show "dev" buttons
+$ curl http://localhost:3000/publish/choice-msg/x-x-DEV
+
 # Simulate a "choice" message from the RFID-controller
 $ curl http://localhost:3000/publish/choice-msg/A-F-x
 

@@ -6,6 +6,7 @@ function Scene(socket) {
   return {
     onVideoPlayed,
     doRestart,
+    toggleHidden,
 
     // Exposed for debugging only
     _debug: {
@@ -28,6 +29,16 @@ function Scene(socket) {
 
   function doRestart() {
     clickBtnById("btnRestart");
+  }
+
+  // Toggle visibility of the 'dev-els'
+  function toggleHidden() {
+    const el = document.getElementById("dev-els");
+    if (!el) {
+      console.log("[ERR] no element found with id 'dev-els'");
+      return;
+    }
+    el.hidden = !el.hidden;
   }
 
   /**

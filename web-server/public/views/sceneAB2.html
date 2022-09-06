@@ -17,8 +17,13 @@
   Your browser does not support the video tag.
 </video>
 
-<!-- These buttons may be unhidden, its text & action may be changed -->
-<div id="hidden-elements" class="dev">
+<!--
+These buttons supposed to be hidden (via CSS) and "clicked" by JS only.
+(`Scene.toggleHidden()` shall add/remove the `hidden` attribute).
+Note the 'data-choice-regex' custom attribute that defines a RegExp for the
+"choice" - it selects the button the JS code "clicks" at.
+-->
+<div id="dev-els" class="dev" hidden>
   <fieldset>
     <legend>Scene A->B2</legend>
     <fieldset>
@@ -44,11 +49,12 @@
         id="btnDev"
         class="btnDev"
         type="button"
-        onclick="window.location.href='#dev'"
+        onclick="App.scene.toggleHidden()"
         data-choice-regex="-DEV$"
       >
-        Dev Menu (≋个≋)
+        Hide
       </button>
+      <div class="dev-menu-links"><a href="#dev">Dev Menu (≋个≋)</a></div>
     </fieldset>
   </fieldset>
 </div>
