@@ -1,80 +1,71 @@
 # /usr/bin/python
-# This is a fake controller
+# This simulates user actions resulting in RFID-readings
 from time import sleep
 import requests as req
 
+def sendChoice(choice, pause):
+  print("requesting " + choice)
+  req.get('http://localhost:3000/publish/choice-msg/' + choice)
+  print("waiting " + str(pause) + "s")
+  sleep(pause)
+
 def fakeUserChoices():
   # route Start->A->B2->C2->End
-  req.get('http://localhost:3000/publish/choice-msg/A-x-x')
-  sleep(4)
-  req.get('http://localhost:3000/publish/choice-msg/A-B-x')
-  sleep(6)
-  req.get('http://localhost:3000/publish/choice-msg/A-B-C')
+  sendChoice('A-x-x', 25)
+  sendChoice('A-B-x', 20)
+  sendChoice('A-B-C', 45)
   # End->Start
-  sleep(15)
+  sendChoice('x-x-RESTART', 20)
+
 
   # route Start->A->B2->D2->End
-  req.get('http://localhost:3000/publish/choice-msg/A-x-x')
-  sleep(4)
-  req.get('http://localhost:3000/publish/choice-msg/A-B-x')
-  sleep(6)
-  req.get('http://localhost:3000/publish/choice-msg/A-B-D')
+  sendChoice('A-x-x', 25)
+  sendChoice('A-B-x', 20)
+  sendChoice('A-B-D', 45)
   # End->Start
-  sleep(15)
+  sendChoice('x-x-RESTART', 20)
 
   # route Start->A->F-C2->End
-  req.get('http://localhost:3000/publish/choice-msg/A-x-x')
-  sleep(4)
-  req.get('http://localhost:3000/publish/choice-msg/A-F-x')
-  sleep(6)
-  req.get('http://localhost:3000/publish/choice-msg/A-F-C')
+  sendChoice('A-x-x', 25)
+  sendChoice('A-F-x', 20)
+  sendChoice('A-F-C', 45)
   # End->Start
-  sleep(15)
+  sendChoice('x-x-RESTART', 20)
 
   # route Start->A->F->E->End
-  req.get('http://localhost:3000/publish/choice-msg/A-x-x')
-  sleep(4)
-  req.get('http://localhost:3000/publish/choice-msg/A-F-x')
-  sleep(6)
-  req.get('http://localhost:3000/publish/choice-msg/A-F-E')
+  sendChoice('A-x-x', 25)
+  sendChoice('A-F-x', 20)
+  sendChoice('A-F-E', 45)
   # End->Start
-  sleep(15)
+  sendChoice('x-x-RESTART', 20)
 
   # route Start->B1->C1-D2->End
-  req.get('http://localhost:3000/publish/choice-msg/B-x-x')
-  sleep(4)
-  req.get('http://localhost:3000/publish/choice-msg/B-C-x')
-  sleep(6)
-  req.get('http://localhost:3000/publish/choice-msg/B-C-D')
+  sendChoice('B-x-x', 25)
+  sendChoice('B-C-x', 20)
+  sendChoice('B-C-D', 45)
   # End->Start
-  sleep(15)
+  sendChoice('x-x-RESTART', 20)
 
   # route Start->B1->C1->E->End
-  req.get('http://localhost:3000/publish/choice-msg/B-x-x')
-  sleep(4)
-  req.get('http://localhost:3000/publish/choice-msg/B-C-x')
-  sleep(6)
-  req.get('http://localhost:3000/publish/choice-msg/B-C-E')
+  sendChoice('B-x-x', 25)
+  sendChoice('B-C-x', 20)
+  sendChoice('B-C-E', 45)
   # End->Start
-  sleep(15)
+  sendChoice('x-x-RESTART', 20)
 
   # route Start->B1-D1->C2->End
-  req.get('http://localhost:3000/publish/choice-msg/B-x-x')
-  sleep(4)
-  req.get('http://localhost:3000/publish/choice-msg/B-D-x')
-  sleep(6)
-  req.get('http://localhost:3000/publish/choice-msg/B-D-C')
+  sendChoice('B-x-x', 25)
+  sendChoice('B-D-x', 20)
+  sendChoice('B-D-C', 45)
   # End->Start
-  sleep(15)
+  sendChoice('x-x-RESTART', 20)
 
   # route Start->B1-D1->E->End
-  req.get('http://localhost:3000/publish/choice-msg/B-x-x')
-  sleep(4)
-  req.get('http://localhost:3000/publish/choice-msg/B-D-x')
-  sleep(6)
-  req.get('http://localhost:3000/publish/choice-msg/B-D-E')
+  sendChoice('B-x-x', 25)
+  sendChoice('B-D-x', 20)
+  sendChoice('B-D-E', 45)
   # End->Start
-  sleep(15)
+  sendChoice('x-x-RESTART', 20)
 
 if __name__ == "__main__":
   print("simulating RFID readings...")
