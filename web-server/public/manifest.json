@@ -1,6 +1,6 @@
 {
-  "short_name": "Day",
-  "name": "Receipt of a Happy Day!",
+  "short_name": "Happy Day",
+  "name": "Soup Kitchen. A recipe of one Bright Day.",
   "icons": [
     {
       "src": "favicon.ico",
@@ -13,26 +13,17 @@
   "display": "standalone",
   "scope": "/",
   "theme_color": "#3367D6",
-  "shortcuts": [
-    {
-      "name": "How's weather today?",
-      "short_name": "Today",
-      "description": "What do you need to prepare a cool day?",
-      "url": "/#home",
-      "icons": [{ "src": "/images/happy-day.png", "sizes": "144x144" }]
-    }
-  ],
-  "description": "Cookbook of happy days receipts",
+  "description": "Interactive cookbook of Bright Days receipts",
   "screenshots": [
     {
       "src": "/images/screenshot1.png",
       "type": "image/png",
-      "sizes": "540x720"
+      "sizes": "256x150"
     },
     {
-      "src": "/images/screenshot2.jpg",
-      "type": "image/jpg",
-      "sizes": "540x720"
+      "src": "/images/screenshot2.png",
+      "type": "image/png",
+      "sizes": "150x256"
     }
   ]
 }
