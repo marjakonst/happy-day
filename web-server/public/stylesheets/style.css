@@ -75,6 +75,16 @@ video::cue {
   opacity: 0;
 }
 
+.fadeout-end {
+  color: whitesmoke;
+  animation: fadeout;
+  animation-duration: 1500ms;
+  animation-timing-function: ease-in-out;
+  animation-delay: 26400ms;
+  animation-iteration-count: 1;
+  opacity: 0;
+}
+
 @keyframes fadeout {
   from {
     opacity: 1;
