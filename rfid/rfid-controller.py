@@ -70,7 +70,7 @@ def nameTagID(id):   #Here we are going to name IDs.
     if id == 584183260835 or id == 584186013337:
         return "A"
  # B-SWEETS
-    if id == 584187520736 or id == 584187782631:
+    if id == 584187520736 or id == 584187782631 or id == 584198137414:
         return "B"
  # C-BREAD
     if id == 584187717092 or id == 584187586273:
